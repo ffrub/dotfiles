@@ -7,7 +7,7 @@ prompt spaceship
 
 # aliases
 alias dotfiles="/usr/bin/git --git-dir=$HOME/code/dotfiles --work-tree=$HOME"
-
+alias vim="nvim"
 # plugins
 # syntax highlighting
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
