@@ -1,0 +1,9 @@
+[user]
+	name = ffrub
+	email = ff.rueb@gmail.com
+[init]
+	defaultBranch = main
+[core]
+	editor = nvim
+[color]
+	ui = auto
