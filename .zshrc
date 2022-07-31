@@ -1,6 +1,9 @@
 # homebrew symlink
 fpath=("$HOMEBREW_PREFIX/share/zsh/site-functions" $fpath)
 
+# enabel ctrl-x-e to edit command line
+autoload -U edit-command-line
+
 # prompt
 autoload -U promptinit; promptinit
 prompt spaceship
