@@ -9,7 +9,7 @@ autoload -U promptinit; promptinit
 prompt spaceship
 
 # aliases
-alias dotfiles="/usr/bin/git --git-dir=$HOME/code/dotfiles --work-tree=$HOME"
+alias dot="/usr/bin/git --git-dir=$HOME/code/dotfiles --work-tree=$HOME"
 alias vim="nvim"
 # plugins
 # syntax highlighting
