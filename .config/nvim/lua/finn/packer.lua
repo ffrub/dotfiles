@@ -10,13 +10,13 @@ return require('packer').startup(function()
       -- theme
       use 'folke/tokyonight.nvim'
 
-      -- treesitter parsing engine
+      --  parsing engine
       use {
           'nvim-treesitter/nvim-treesitter',
           run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
       }
 
-      -- telescope fuzzy finder
+      --  fuzzy finder
       use {
           'nvim-telescope/telescope.nvim', tag = '0.1.0',
           requires = { {'nvim-lua/plenary.nvim'} }
@@ -30,8 +30,20 @@ return require('packer').startup(function()
           ]]
       }
 
-      -- lsp config for easy adding
+      -- configs for nvim lsp client
       use 'neovim/nvim-lspconfig'
+
+      -- completion
+      use 'hrsh7th/nvim-cmp' -- core
+      use 'hrsh7th/cmp-buffer' -- current buffer suggestions
+      use 'hrsh7th/cmp-path' -- file path suggestions
+      use 'hrsh7th/cmp-nvim-lsp' -- combining with lsp client
+      use 'hrsh7th/cmp-cmdline' -- suggestions in cmd mode
+
+      use 'hrsh7th/cmp-nvim-lua' -- nvim config suggestions
+
+      use 'L3MON4D3/LuaSnip' -- snippet plugin
+      use 'saadparwaiz1/cmp_luasnip' -- adapter for snippet + cmp 
 end)
 
 
