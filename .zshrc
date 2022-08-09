@@ -1,5 +1,11 @@
+# path
+path+=("$HOME/bin/")
+export PATH
 # homebrew symlink
 fpath=("$HOMEBREW_PREFIX/share/zsh/site-functions" $fpath)
+
+# editor
+export EDITOR=nvim
 
 # enabel ctrl-x-e to edit command line
 autoload -U edit-command-line
