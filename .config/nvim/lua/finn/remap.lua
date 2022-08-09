@@ -24,5 +24,5 @@ nnoremap("<C-w>h", "<C-w>H")
 nnoremap("<C-w>l", "<C-w>L")
 
 
-inoremap("jh", "<Esc>")
+inoremap("kj", "<Esc>")
 
