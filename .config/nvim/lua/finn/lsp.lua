@@ -1,7 +1,8 @@
 local tsserver = require'lspconfig'.tsserver
+local gopls = require'lspconfig'.gopls
 
-tsserver.setup{
-    on_attach = function()
+local function default_key_maps()
+    return function()
         vim.keymap.set("n", "K", vim.lsp.buf.hover, {buffer=0})
         vim.keymap.set("n", "gd", vim.lsp.buf.definition, {buffer=0})
         vim.keymap.set("n", "gr", vim.lsp.buf.references, {buffer=0})
@@ -15,6 +16,14 @@ tsserver.setup{
 
         vim.keymap.set("n", "<leader>dl", "<cmd>Telescope diagnostics<CR>", {buffer=0})
     end
+end
+
+tsserver.setup{
+    on_attach = default_key_maps()
+}
+
+gopls.setup{
+    on_attach = default_key_maps()
 }
 
 local cmp = require'cmp'
