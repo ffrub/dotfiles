@@ -4,10 +4,11 @@ local gopls = require'lspconfig'.gopls
 local function default_key_maps()
     return function()
         vim.keymap.set("n", "K", vim.lsp.buf.hover, {buffer=0})
-        vim.keymap.set("n", "gd", vim.lsp.buf.definition, {buffer=0})
-        vim.keymap.set("n", "gr", vim.lsp.buf.references, {buffer=0})
-        vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, {buffer=0})
-        vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {buffer=0})
+        vim.keymap.set("n", "gd", "<cmd>Telescope lsp_defenitions<CR>", {buffer=0})
+        vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", {buffer=0})
+        vim.keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", {buffer=0})
+        vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", {buffer=0})
+        vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {buffer=0})
         
         vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, {buffer=0})
 
