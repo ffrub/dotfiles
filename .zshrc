@@ -32,6 +32,9 @@ alias cdvim="cd ~/.config/nvim/"
 alias cdcode"=cd ~/code/"
 alias cdhome="cd ~"
 
+# git aliases
+alias glo="git log --oneline"
+alias gs="git status"
 
 # plugins
 # syntax highlighting
