@@ -11,10 +11,7 @@ export EDITOR=nvim
 autoload -U edit-command-line
 
 # prompt
-autoload -U promptinit; promptinit
-prompt spaceship
-SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=true
-SPACESHIP_DIR_TRUNC=0
+source "$HOMEBREW_PREFIX/opt/spaceship/spaceship.zsh"
 
 # main aliases
 alias dot="/usr/bin/git --git-dir=$HOME/code/dotfiles --work-tree=$HOME"
