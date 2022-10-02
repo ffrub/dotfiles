@@ -50,6 +50,9 @@ return require('packer').startup(function()
 
       use 'L3MON4D3/LuaSnip' -- snippet plugin
       use 'saadparwaiz1/cmp_luasnip' -- adapter for snippet + cmp 
+
+      -- commenting
+      use 'numToStr/Comment.nvim'
 end)
 
 
