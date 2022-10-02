@@ -17,6 +17,7 @@ source "$HOMEBREW_PREFIX/opt/spaceship/spaceship.zsh"
 alias dot="/usr/bin/git --git-dir=$HOME/code/dotfiles --work-tree=$HOME"
 alias vim="nvim"
 alias v="nvim ."
+alias vimconfig="nvim ~/.config/nvim/"
 alias zconfig="nvim ~/.zshrc"
 alias remaps="nvim ~./.config/nvim/lua/finn/remap.lua"
 
@@ -36,6 +37,10 @@ alias cdvim="cd ~/.config/nvim/"
 alias cdcode"=cd ~/code/"
 alias cdhome="cd ~"
 
+# nav functions
+function gt() {
+    cd $(find $HOME/code -type d -maxdepth 2 | grep -vi dotfiles | fzf)
+}
 
 # plugins
 # syntax highlighting
