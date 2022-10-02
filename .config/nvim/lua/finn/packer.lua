@@ -8,6 +8,7 @@ return require('packer').startup(function()
       use 'wbthomason/packer.nvim'
 
       -- theme
+      -- use 'shaunsingh/nord.nvim'
       use 'folke/tokyonight.nvim'
 
       --  parsing engine
