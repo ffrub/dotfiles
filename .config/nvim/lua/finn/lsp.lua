@@ -4,14 +4,15 @@ local gopls = require'lspconfig'.gopls
 local function default_key_maps()
     return function()
         vim.keymap.set("n", "K", vim.lsp.buf.hover, {buffer=0})
-        vim.keymap.set("n", "gd", "<cmd>Telescope lsp_defenitions<CR>", {buffer=0})
+        vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", {buffer=0})
         vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", {buffer=0})
-        vim.keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", {buffer=0})
+        vim.keymap.set("n", "<leader>gt", "<cmd>Telescope lsp_type_definitions<CR>", {buffer=0})
         vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", {buffer=0})
         vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {buffer=0})
         
         vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, {buffer=0})
 
+        vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, {buffer=0})
         vim.keymap.set("n", "<leader>df", vim.diagnostic.goto_next, {buffer=0})
         vim.keymap.set("n", "<leader>dp", vim.diagnostic.goto_prev, {buffer=0})
 
@@ -19,9 +20,15 @@ local function default_key_maps()
     end
 end
 
-tsserver.setup{
-    on_attach = default_key_maps()
+-- local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+
+tsserver.setup {
+    on_attach = default_key_maps(),
+    capabilities = capabilities
 }
+
 
 gopls.setup{
     on_attach = default_key_maps()
@@ -57,16 +64,9 @@ cmp.setup({
     },
 })
 
-
 cmp.setup.cmdline(':', {
     sources = {
         name = 'cmdline'
     }
 })
-
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-
-tsserver.setup {
-    capabilities = capabilities
-}
 
