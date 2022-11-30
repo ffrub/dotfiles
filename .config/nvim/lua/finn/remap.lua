@@ -17,6 +17,9 @@ nnoremap("<leader>fbl", "<cmd>Telescope git_bcommits<CR>")
 -- open netrw
 nnoremap("<leader>pv", "<cmd>Ex<CR>")
 
+-- copy file path
+nnoremap("<leader>cp", "<cmd>let @*=expand('%')<CR>")
+
 -- jump to pane
 nnoremap("<C-j>", "<C-w>j")
 nnoremap("<C-k>", "<C-w>k")
