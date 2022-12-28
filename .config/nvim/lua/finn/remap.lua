@@ -14,6 +14,10 @@ nnoremap("<leader>fs", "<cmd>Telescope git_status<CR>")
 nnoremap("<leader>fl", "<cmd>Telescope git_commits<CR>")
 nnoremap("<leader>fbl", "<cmd>Telescope git_bcommits<CR>")
 
+-- navigate vertically
+nnoremap("<C-d>", "<C-d>zz")
+nnoremap("<C-u>", "<C-u>zz")
+
 -- open netrw
 nnoremap("<leader>pv", "<cmd>Ex<CR>")
 
@@ -36,7 +40,21 @@ nnoremap("<C-w>l", "<C-w>L")
 vnoremap("J", ":m '>+1<CR>gv=gv")
 vnoremap("K", ":m '<-2<CR>gv=gv")
 
+-- to void
 xnoremap("<leader>p", "\"_dP")
+nnoremap("<leader>d", "\"_d")
+vnoremap("<leader>d", "\"_d")
+
+-- copy to system clipboard
+nnoremap("<leader>y", '"+y')
+vnoremap("<leader>y", '"+y')
+nnoremap("<leader>Y", '"+Y')
+
+nnoremap("Q", "<nop>")
+nnoremap("<leader>f", vim.lsp.buf.format)
+
+-- find and replace word under cursor
+nnoremap("<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- tbd - get https://github.com/mbbill/undotree
 -- nnoremap("<leader>u", ":UndotreeShow<CR>")
