@@ -1,8 +1,6 @@
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
 
 -- Only required if you have packer configured as `opt`
-vim.cmd [[packadd packer.nvim]]
-
 return require('packer').startup(function()
       -- Packer can manage itself
       use 'wbthomason/packer.nvim'
@@ -25,7 +23,7 @@ return require('packer').startup(function()
 
       --  fuzzy finder
       use {
-          'nvim-telescope/telescope.nvim', tag = '0.1.0',
+          'nvim-telescope/telescope.nvim', tag = '0.1.x',
           requires = { {'nvim-lua/plenary.nvim'} }
       }
       use {
@@ -37,20 +35,27 @@ return require('packer').startup(function()
           ]]
       }
 
-      -- configs for nvim lsp client
-      use 'neovim/nvim-lspconfig'
+      use {
+        'VonHeikemen/lsp-zero.nvim',
+        requires = {
+          -- LSP Support
+          {'neovim/nvim-lspconfig'},
+          {'williamboman/mason.nvim'},
+          {'williamboman/mason-lspconfig.nvim'},
 
-      -- completion
-      use 'hrsh7th/nvim-cmp' -- core
-      use 'hrsh7th/cmp-buffer' -- current buffer suggestions
-      use 'hrsh7th/cmp-path' -- file path suggestions
-      use 'hrsh7th/cmp-nvim-lsp' -- combining with lsp client
-      use 'hrsh7th/cmp-cmdline' -- suggestions in cmd mode
+          -- Autocompletion
+          {'hrsh7th/nvim-cmp'},
+          {'hrsh7th/cmp-buffer'},
+          {'hrsh7th/cmp-path'},
+          {'saadparwaiz1/cmp_luasnip'},
+          {'hrsh7th/cmp-nvim-lsp'},
+          {'hrsh7th/cmp-nvim-lua'},
 
-      use 'hrsh7th/cmp-nvim-lua' -- nvim config suggestions
-
-      use 'L3MON4D3/LuaSnip' -- snippet plugin
-      use 'saadparwaiz1/cmp_luasnip' -- adapter for snippet + cmp 
+          -- Snippets
+          {'L3MON4D3/LuaSnip'},
+          {'rafamadriz/friendly-snippets'},
+        }
+      }
 
       -- commenting
       use 'numToStr/Comment.nvim'
