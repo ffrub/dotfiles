@@ -27,3 +27,5 @@ vim.opt.backup = false
 vim.opt.undofile = true
 
 vim.g.mapleader = " "
+
+vim.g.copilot_autostart = 1
