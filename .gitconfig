@@ -8,3 +8,5 @@
 	excludesfile = /Users/finn/.gitignore_global
 [color]
 	ui = auto
+[push]
+	autoSetupRemote = true
