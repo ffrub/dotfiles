@@ -39,6 +39,10 @@ lsp.setup_nvim_cmp({
   mapping = cmp_mappings
 })
 
+vim.diagnostic.config({
+    virtual_text = true,
+})
+
 lsp.on_attach(function(client, bufnr)
   local nmap = function(keys, func, desc)
     if desc then
@@ -46,19 +50,21 @@ lsp.on_attach(function(client, bufnr)
     end
 
     vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
+
+    -- if client.name == "eslint" then
+    --   vim.cmd.LspStop('eslint')
+    --   return
+    -- end
   end
 
-  if client.name == "eslint" then
-      vim.cmd.LspStop('eslint')
-      return
-  end
+  local telescope = require('telescope.builtin')
 
   nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
   nmap("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
 
-  nmap("gd", vim.lsp.buf.definition, '[G]o to [D]efinition')
-  nmap("<leader>gd", vim.lsp.buf.type_definition, '[G]o to Type [D]efinition')
-  nmap("gr", vim.lsp.buf.references, '[G]o to [R]eferences')
+  nmap("gd", telescope.lsp_definitions, '[G]o to [D]efinition')
+  nmap("<leader>gd", telescope.lsp_type_definitions, '[G]o to Type [D]efinition')
+  nmap("gr", telescope.lsp_references, '[G]o to [R]eferences')
   nmap("gI", vim.lsp.buf.references, '[G]o to [I]mplementation')
   nmap("K", vim.lsp.buf.hover, '[K]eyword hover')
   nmap("<leader>e", vim.diagnostic.open_float, '[E]rror hover')
@@ -69,9 +75,10 @@ end)
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 lsp.capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
-lsp.set_preferences({
-  sign_icons = {}
+lsp.set_server_config({
+  single_file_support = true,
 })
 
+lsp.nvim_workspace()
 
 lsp.setup()
